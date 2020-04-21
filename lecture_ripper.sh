@@ -15,8 +15,6 @@ for lecture_file in *.pptx
 		archive_dir="${lecture_name}_archive"
 		mkdir "$archive_dir"
 		unzip -d "$archive_dir" "${lecture_file}.zip"
-
-
 		# now let's get all the media files
 		media_dir="$archive_dir"/ppt/media
 		for media_file in "$media_dir"/media*
@@ -49,11 +47,11 @@ for lecture_file in *.pptx
 				
 
 			done
-
-	cat *.aac > "$lecture_aac"
-	rm media*
-	ffmpeg.exe -i "$lecture_aac" -acodec copy -bsf:a aac_adtstoasc "${lecture_name}.m4a"
-	rm "$lecture_aac"
-	done
-
-
+		cat *.aac > "$lecture_aac"
+		rm media*
+		../ffmpeg/bin/ffmpeg.exe -i "$lecture_aac" -acodec copy -bsf:a aac_adtstoasc "${lecture_name}.m4a"
+		# clean up
+		rm "$lecture_aac"
+		rm -r "${archive_dir}"
+		rm "${lecture_file}.zip"
+		done
