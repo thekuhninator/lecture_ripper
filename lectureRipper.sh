@@ -56,14 +56,4 @@ for lecture_file in *.pptx
 	rm "$lecture_aac"
 	done
 
-#for fileName in media*
-#	do 
-#		
-#	done
-
-#cat *.aac > newLectureTest
-
-
-
-
 
