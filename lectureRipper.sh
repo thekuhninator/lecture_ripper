@@ -52,7 +52,7 @@ for lecture_file in *.pptx
 
 	cat *.aac > "$lecture_aac"
 	rm media*
-	../ffmpeg/bin/ffmpeg.exe -i "$lecture_aac" -acodec copy -bsf:a aac_adtstoasc "${lecture_name}.m4a"
+	ffmpeg.exe -i "$lecture_aac" -acodec copy -bsf:a aac_adtstoasc "${lecture_name}.m4a"
 	rm "$lecture_aac"
 	done
 
